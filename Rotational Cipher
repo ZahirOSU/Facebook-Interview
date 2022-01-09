@@ -1,0 +1,64 @@
+#include <ctype.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+ 
+
+char* rotationalCipher(char  input[], int rotationFactor) 
+{
+  
+  int i, j;
+  int n = strlen(input);
+  char* str = malloc (sizeof(char)*n);
+    for (i = 0; input[i] != '\0'; i++)
+    {
+        if ((input[i]>='a') && (input[i]<='z'))
+          str[i] = (input[i]+rotationFactor) >'z' ? 96+(input[i]+rotationFactor)%122  : input[i]+rotationFactor ;
+       
+        else if ((input[i]>='A') && (input[i]<='Z'))
+          str[i] = (input[i]+rotationFactor) >'Z' ? 64+(input[i]+rotationFactor)%90  : input[i]+rotationFactor ;
+       
+         
+        else if (isdigit(input[i]))
+       {
+         j= (input[i]+rotationFactor - '0')%10  ;
+         j%=10;
+         j+='0';
+         str[i]=  (j);
+         
+       }
+       
+        else
+            str[i] =  input[i];
+    }
+     
+ 
+  return str;
+ }
+
+                    
+
+
+
+int main()
+{
+     
+  
+  char str[] = "All-convoYs-9-be:Alert1.";
+  int n = strlen(str);
+  //printf("%d",n);
+  char *message;
+  
+  message = rotationalCipher(str, 4);
+  
+  for (int i = 0; i<n; i++)
+    {
+              printf("%c", message[i]);
+  
+    }
+    
+    
+    //Epp-gsrzsCw-3-fi:Epivx5.
+  
+    return 0;
+}
