@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+int* CountSubarrays(int arr[], int n) {
+  // Write your code here
+  // Set output_size for test cases to run correctly
+ 
+int* result = (int*) malloc (sizeof(int)*(n));
+int length = n;
+for(int i=0; i< length; i++) {
+int j = i;
+int count = 1;
+
+  while((j > 0) && (arr[i] > arr[j-1])) {
+    ++count;
+    --j;
+  }
+  
+  j = i;
+    
+  while((j < length-1) && (arr[i] > arr[j+1])){
+    ++count;
+    ++j;
+  }
+  result[i] = count;
+}
+return result;
+}
+ 
+
+int main() {
+    int *p;
+    int numbers[5] = {3, 4, 1, 6, 2};
+    int numbersSize = 5;
+     
+     
+  
+    p= CountSubarrays(numbers, numbersSize);
+    
+  for(int i=0;i<5;i++)
+    printf("%d ",  *(p+i));
+    return 0;
+}
