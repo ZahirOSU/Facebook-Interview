@@ -13,16 +13,16 @@ char* rotationalCipher(char  input[], int rotationFactor)
     for (i = 0; input[i] != '\0'; i++)
     {
         if ((input[i]>='a') && (input[i]<='z'))
-          str[i] = (input[i]+rotationFactor) >'z' ? 96+(input[i]+rotationFactor)%122  : input[i]+rotationFactor ;
+          str[i] = (input[i]+rotationFactor) >'z' ? 97+(input[i]+rotationFactor - 97)%26  : input[i]+rotationFactor ;
        
         else if ((input[i]>='A') && (input[i]<='Z'))
-          str[i] = (input[i]+rotationFactor) >'Z' ? 64+(input[i]+rotationFactor)%90  : input[i]+rotationFactor ;
+          str[i] = (input[i]+rotationFactor) >'Z' ? 65+(input[i]+rotationFactor - 65)%26  : input[i]+rotationFactor ;
        
          
         else if (isdigit(input[i]))
        {
          j= (input[i]+rotationFactor - '0')%10  ;
-         j%=10;
+          
          j+='0';
          str[i]=  (j);
          
@@ -44,12 +44,12 @@ int main()
 {
      
   
-  char str[] = "All-convoYs-9-be:Alert1.";
+  char str[] = "abcdZXYzxy-999.@";
   int n = strlen(str);
   //printf("%d",n);
   char *message;
   
-  message = rotationalCipher(str, 4);
+  message = rotationalCipher(str, 200);
   
   for (int i = 0; i<n; i++)
     {
@@ -58,7 +58,7 @@ int main()
     }
     
     
-    //Epp-gsrzsCw-3-fi:Epivx5.
+    //stuvRPQrpq-999.@
   
     return 0;
 }
