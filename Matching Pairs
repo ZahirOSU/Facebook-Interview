@@ -1,0 +1,53 @@
+int countMatches(char *s1, char *s2)
+{
+    int result=0;
+    for(int i =0;i<strlen(s1);i++)
+    {
+      if(s1[i]==s2[i]) result++;
+    }
+    return result;
+ }
+  
+char *swap(char  *str , int i, int j)
+  {
+    char c;
+    c = str[i];
+    str[i] = str[j];
+    str[j] = c;
+    //printf("%s ", str);
+  return str;
+  }
+
+int matchingPairs(char s[], char t[]) {
+  // Write your code here
+int max=0 ;
+    for(int i =0;i<strlen(s);i++)
+    {
+      for(int j=i+1;j<strlen(s);j++)
+      {
+        char* replaced=swap(s, i,j);
+        //printf("%s ", replaced);
+        int count = countMatches(replaced,t);
+        if(count>max) max=count;
+      }
+    }
+    return max;  
+}
+
+int main() {
+
+  char s_1[] = "mno";
+  char t_1[] = "mno";
+  int expected_1 = 1;
+  int output_1 = matchingPairs(s_1, t_1);
+   
+
+  char s_2[] = "abcd";
+  char t_2[] = "abcd";
+  int expected_2 = 2;
+  int output_2 = matchingPairs(s_2, t_2);
+   
+
+   
+  
+}
