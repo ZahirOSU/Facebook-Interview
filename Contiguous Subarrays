@@ -7,7 +7,7 @@ int* CountSubarrays(int arr[], int n, int *output_size) {
  
 int* result = (int*) malloc (sizeof(int)*(n));
 int length = n, j, i, count;
-*output_size = 5;
+*output_size = length;
 for(i=0; i< length; i++) {
   j = i;
   count = 1;
