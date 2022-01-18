@@ -1,0 +1,38 @@
+int numberOfWays(int arr[], int n, int k) 
+{
+  // Write your code here
+  
+  int next;
+    
+    for (int i=0; i< n && arr[i]<=k; i++ )
+    {
+       next=k-arr[i];
+      if( next==0)
+      {
+        return 1;
+      }
+    
+    }    
+    
+ return 1+ numberOfWays( arr ,  n,   next);  
+  
+}
+
+int main() {
+  int n_1 = 5, k_1 = 6;
+  int arr_1[] = {1, 2, 3, 4, 3};
+  int expected_1 = 2;
+  int output_1 = numberOfWays(arr_1, n_1, k_1);
+  check(expected_1, output_1);
+
+  int n_2 = 5, k_2 = 6;
+  int arr_2[] = {1, 5, 3, 3, 3};
+  int expected_2 = 4;
+  int output_2 = numberOfWays(arr_2, n_2, k_2);
+  check(expected_2, output_2);
+
+  // Add your own test cases here
+  
+}
+
+
