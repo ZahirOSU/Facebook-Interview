@@ -1,0 +1,63 @@
+char* findEncryptedWord(char s[], int n) {
+  // Write your code here
+  int c = 0;
+  if (s[0] == '\0') return ""; //check if C string is empty
+  if (strlen(s) == 1) return s;  // check if it has one character
+  char *str1 = (char*)malloc(n*sizeof(char));
+  char *str2 =(char*)malloc(n*sizeof(char));
+  char *str = (char*)malloc((100)*sizeof(char)); 
+  //int size = strlen(str1) + strlen(str2) + 2;
+  //char *str = malloc(size);
+  // find the mid of string of the string if the length if odd or even
+  
+  int mid = (strlen(s) & 1) ? strlen(s) / 2 : (strlen(s) / 2 - 1);
+  //int mid =   strlen(s) / 2 ;
+ //printf("%c",s[mid]);
+  for(int i = mid+1; i< strlen(s); i++)
+      {
+      str2[c] = s[i];
+      c++;
+      }
+   str2[c] = '\0';
+   c = 0;
+   for(int i = 0; i< mid; i++)
+      {
+      str1[c] = s[i];
+      c++;
+      }   
+  str1[c] = '\0';
+  /* concatenate */
+  
+   char key[2];
+   key[0]= s[mid];
+   //key[1] = '\0';
+   //printf("%c",s[mid]);
+   strcpy (str, key);
+   strcat (str,findEncryptedWord(str1,strlen(str1)));
+   strcat (str,findEncryptedWord(str2,strlen(str2))); 
+  
+  
+   
+  //return s[mid] + findEncryptedWord(str1, strlen(str1) ) + findEncryptedWord(str2, strlen(str2));
+          return str;
+}
+
+
+
+int main() {
+
+  int n_1 = 3;
+  char s_1[] = "abc";
+  char expected_1[] = "bac";
+  char* output_1 = findEncryptedWord(s_1, n_1);
+  check(expected_1, output_1);
+
+  int n_2 = 4;
+  char s_2[] = "abcd";
+  char expected_2[] = "bacd";
+  char* output_2 = findEncryptedWord(s_2, n_2);
+  check(expected_2, output_2);
+
+  // Add your own test cases here
+  
+}
