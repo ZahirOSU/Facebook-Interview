@@ -1,13 +1,14 @@
+#include <stdio.h>
+#include <stdbool.h>
 bool canGetExactChange(int targetMoney, int n,int  denominations[]) 
 {
    
-  
-     
+    
     for (int i=0; i< n && denominations[i]<=targetMoney; i++ )
     {
       //printf("%d ",i);
       int  next=targetMoney-denominations[i];
-      printf("%d ",next);
+      //printf("%d ",next);
       if( next==0)
       {
         return true;
