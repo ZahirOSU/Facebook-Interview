@@ -1,0 +1,40 @@
+// asked to flip the output as seen
+
+int main() {
+  int ary[][3] = { 
+                  {1, 2, 3},
+                  {4, 5 , 6},
+                  {7, 8, 9}
+                 };
+  
+  int rows =  sizeof(ary) / sizeof(ary[0]); // 2 rows  
+
+  int cols = sizeof(ary[0]) / sizeof(int); // 5 cols
+  
+  int ary2[cols][rows];
+  
+  for(int i = 0 ; i< rows; i++)
+    for(int j= 0 ; j< cols; j++)
+    {
+      ary2[j][rows -i-1] = ary[i][j];
+      
+    }
+  
+  for(int i = 0 ; i< cols ; i++)
+  {
+    for(int j = 0 ; j< rows ; j++)
+    {
+      printf("%d ", ary2[i][j]);
+    }
+    printf("\n");
+  }
+        
+   
+  return 0;
+}
+
+*/ output
+7 4 1 
+8 5 2 
+9 6 3
+/*
