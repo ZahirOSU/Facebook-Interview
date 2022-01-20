@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
+// To execute C, please define "int main()"
+
+bool areTheyEqual(int n, int *array_a , int *array_b ) {
+  // Write your code here
+    bool result = true;
+    int map[n]; 
+    //int *map  = (int*)malloc(n * sizeof(int));;
+    for (int i = 0; i < n; i++) 
+    {
+        map[array_a[i]]++;
+        map[array_b[i]]--;
+    }
+  
+    for (int i = 0; i < n; i++) 
+    {
+       if(map[i]!=0)
+       {
+           result = false;
+           break;
+       }
+    }
+    return result;
+}
+
+
+int main() {
+
+   
+   
+  int n_1 = 4; 
+  int array_a_1[] = {1, 2, 3, 4};
+  int array_b_1[] = {1, 4, 3, 2};
+   
+  bool output_1 = areTheyEqual(n_1, array_a_1, array_b_1); 
+   
+  printf(output_1 ? "true" : "false");
+   
+  
+}
