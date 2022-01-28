@@ -1,0 +1,19 @@
+int countbits(int inpt)
+{
+ 
+ if (inpt  == 0)
+ return 0;
+ 
+ in p =1;
+  while  ( p < = inpt)
+ P*=2;
+ 
+ return 1+ countbits(inpt -p/2)
+ 
+ }
+ 
+ that return numbrs of bits in an integer
+ 
+ input 5
+ output is  2
+ 101 
