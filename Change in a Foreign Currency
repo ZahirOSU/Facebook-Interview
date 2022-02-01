@@ -25,8 +25,7 @@ bool canGetExactChange(int targetMoney, int n,int  denominations[])
 int main() 
 {
   
-  
-  
+    
   int n_2 = 3;
   int target_2 = 75; 
   int arr_2[] = {4, 17, 29};
